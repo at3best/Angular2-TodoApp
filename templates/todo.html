@@ -1,0 +1,36 @@
+<style>
+    @import url(https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css);
+    @import url(https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material.min.css);
+  /* @import url(https://rawgit.com/urish/angular2-material-build/master/angular2_material.css);*/
+
+</style>
+<style>
+    .container{
+        font-family: 'Open Sans', sans-serif;
+            margin-top: 200px;
+    }
+    .done{
+        text-decoration: line-through;
+        color : #999999;
+    }
+    .bottom-offset{
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-4 col-xs-offset-4">
+            <div class="bottom-offset">
+                <input type="text" class="form-control" placeholder="Write something here" autofocus #newtodo (keyup)="add($event,newtodo)"/>
+            </div>
+           <div class="list-group">
+                  <li href="#" [class.done]="todo.done" (click)="toggleTodoState(todo)"  class="list-group-item h3" *ng-for="#todo of todoStore.todoList">{{todo.text}}</li>
+            </div>
+             
+           
+        </div>
+        <div class="col-xs-4"></div>
+    </div>
+</div>
+
